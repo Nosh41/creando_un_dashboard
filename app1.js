@@ -36,7 +36,7 @@ function table() {
                 { targets: 6 },
             ],
             ajax: {
-                url: "Nosh41/creando_un_dashboard/all_data.json"
+                url: "https://raw.githubusercontent.com/Nosh41/creando_un_dashboard/gh-pages/all_data.json"
             },
             drawCallback: function(settings) {
                 var api = this.api();
