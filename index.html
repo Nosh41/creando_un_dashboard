@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Creando un Dashboard</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <!--link href="style1.css" rel="stylesheet" type="text/css"-->
+    <link href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
+    <script src="app.js"></script>
+    <script src="app1.js"></script>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+
+
+</head>
+
+<body onload="dashboard(), table()">
+    <h1>Emisiones de Dioxido de Carbono CO<sub>2</sub> de 1990 a 2011</h1>
+
+    <div id="nav">
+        <!--h2>C0<sub>2</sub></h2-->
+        <p>
+            Verifica las emisones de CO<sub>2</sub> por año. Desde: <span id="year-val"></span>
+            <input id="year" type="range" step="1">
+        </p>
+        <p>
+            Visualiza por Total de Emisiones or Emisiones per capita.
+            <input type="radio" name="data-type" value="emissions" checked>
+            <label>Total de Emisiones</label>
+            <input type="radio" name="data-type" value="emissionsPerCapita">
+            <label>Emisiones Per Capita</label>
+        </p>
+        <!--p>Click on a country to see its trends by year.</p-->
+    </div>
+    <section class="container">
+        <div class="chart-container">
+            <svg version="1.1" baseProfile="full" xmlns="http://www.w3.org/2000/svg" id="map"></svg>
+        </div>
+        <div class="chart-container right">
+            <svg version="1.1" baseProfile="full" xmlns="http://www.w3.org/2000/svg" id="pie"></svg>
+            <svg version="1.1" baseProfile="full" xmlns="http://www.w3.org/2000/svg" id="bar"></svg>
+        </div>
+    </section>
+
+    <div class="tooltip"></div>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://unpkg.com/topojson@3"></script>
+
+    <section>
+        <div class="well">
+            <br>
+            <table id="example" class="table" style="width:90%">
+                <thead>
+                    <tr>
+                        <th>Country</th>
+                        <th>Country Code</th>
+                        <th>Continent</th>
+                        <th>Region</th>
+                        <th>Year</th>
+                        <th>Emissions Per Capita</th>
+                        <th>Emissions</th>
+                    </tr>
+                </thead>
+                <tbody style="text-align: center; color: darkred;">
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+</body>
+
+
+</html>
